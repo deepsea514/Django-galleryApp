@@ -1,0 +1,58 @@
+/* :: 6.0 Buttons CSS */
+
+.btn {
+    &:focus {
+        box-shadow: none;
+    }
+}
+
+.alime-btn {
+    position: relative;
+    z-index: 1;
+    min-width: 160px;
+    height: 46px;
+    line-height: 42px;
+    font-size: 16px;
+    font-weight: 500;
+    display: inline-block;
+    padding: 0 30px;
+    text-align: center;
+    text-transform: capitalize;
+    background-color: transparent;
+    color: $white;
+    border: 2px solid $primary;
+    border-radius: 60px;
+    @include transition-duration(500ms);
+
+    &.btn-2 {
+        color: $heading;
+    }
+
+    &:focus,
+    &:hover {
+        font-weight: 500;
+        @include box-shadow($box-shadow);
+        background-color: $primary;
+        color: $white;
+    }
+}
+
+.badges-btn {
+    background-color: $border;
+    padding: 5px 15px;
+    display: inline-block;
+    color: $text;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    border-radius: 2px;
+    @include transition-duration(500ms);
+    letter-spacing: 1px;
+
+    &:hover,
+    &:focus {
+        background-color: $primary;
+        color: $white;
+        font-weight: 500;
+    }
+}

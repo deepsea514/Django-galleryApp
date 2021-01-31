@@ -1,0 +1,82 @@
+/* :: 14.0 Team CSS */
+
+.team-content-area {
+    position: relative;
+    z-index: 1;
+    padding: 40px;
+    @include box-shadow(0 4px 20px 3px rgba(0, 0, 0, 0.10));
+    border-radius: 10px;
+    text-align: center;
+    @include transition-duration(500ms);
+    background-color: $white;
+
+    .member-thumb {
+        margin: 0 auto 40px;
+        width: 165px;
+
+        img {
+            @include transition-duration(500ms);
+            width: 100%;
+            border-radius: 50%;
+        }
+    }
+
+    h5 {
+        @include transition-duration(500ms);
+        font-size: 20px;
+        font-weight: 500;
+        margin-bottom: 0;
+    }
+
+    span {
+        @include transition-duration(500ms);
+        color: $primary;
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+
+    .member-social-info {
+        position: relative;
+        z-index: 1;
+        margin-top: 30px;
+
+        a {
+            color: $text;
+            font-size: 16px;
+            margin: 0 10px;
+            @include transition-duration(500ms);
+
+            &:hover,
+            &:focus {
+                color: $primary;
+            }
+        }
+    }
+
+    &:hover,
+    &:focus {
+        background-color: $primary;
+
+        .member-thumb {
+            img {
+                @include transform(rotate(25deg));
+            }
+        }
+
+        h5,
+        span {
+            color: $white;
+        }
+
+        .member-social-info {
+            a {
+                color: $white;
+
+                &:hover,
+                &:focus {
+                    color: $dark;
+                }
+            }
+        }
+    }
+}

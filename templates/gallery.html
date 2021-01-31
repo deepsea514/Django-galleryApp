@@ -1,0 +1,168 @@
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Title -->
+    <title>Alime - Photography HTML Template</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="./img/core-img/favicon.png">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="{% static 'index/style.css' %}">
+
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+    <!-- /Preloader -->
+<!-- Header Area Start -->
+    <header class="header-area">
+        <!-- Main Header Start -->
+        <div class="main-header-area">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Classy Menu -->
+                    <nav class="classy-navbar justify-content-between" id="alimeNav">
+
+                        <!-- Logo -->
+                        <a class="nav-brand" href="./index.html"></a>
+
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
+                        <!-- Menu -->
+                        <div class="classy-menu">
+                            <!-- Menu Close Button -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+                            <!-- Nav Start -->
+                            <div class="classynav">
+                                <ul id="nav">
+                                    <li class="active"><a href="./index.html">Home</a></li>
+
+
+                                    <li><a href="{% url 'gallery' %}">Gallery</a></li>
+                                    <li><a href="{% url 'controlPannel' %}">Admin</a></li>
+                                    <li><a href="{% url 'login' %}">Login</a></li>
+                                    <li><a href="./contact.html">Contact</a></li>
+                                </ul>
+
+                                <!-- Search Icon -->
+
+                            </div>
+                            <!-- Nav End -->
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header Area End -->
+
+
+
+    <!-- Breadcrumb Area Start -->
+    <section class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url('https://images.unsplash.com/photo-1496417263034-38ec4f0b665a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80');">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcrumb-content text-center">
+                        <h2 class="page-title">Gallery</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb justify-content-center">
+                                <li class="breadcrumb-item"><a href="{% url 'index' %}"><i class="icon_house_alt"></i> Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Gallery</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Area End -->
+
+
+    <!-- Gallery Area Start -->
+    <div class="alime-portfolio-area section-padding-80 clearfix">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Projects Menu -->
+                    <div class="alime-projects-menu wow fadeInUp" data-wow-delay="100ms">
+                        <div class="portfolio-menu text-center">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row alime-portfolio">
+                {% for images in product_images %}
+                    <div class="col-12 col-sm-6 col-lg-3 single_gallery_item nature mb-30 wow fadeInUp" data-wow-delay="100ms">
+                        <div class="single-portfolio-content">
+                            <a href="{% url 'product-detail' %}">
+                                <img src="media/{{ images.P_image }}" alt="">
+                            </a>
+
+                        </div>
+                    </div>
+
+                {% endfor %}
+
+
+            </div>
+
+        </div>
+    </div>
+    <!-- Gallery Area End -->
+
+    <!-- Footer Area Start -->
+    <footer class="footer-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="footer-content d-flex align-items-center justify-content-between">
+                        <!-- Copywrite Text -->
+                        <div class="copywrite-text">
+                            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with  by <a href="" target="_blank">Dhruv Patel</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                        </div>
+                        <!-- Footer Logo -->
+
+                        <!-- Social Info -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Area End -->
+
+    <!-- **** All JS Files ***** -->
+    <!-- jQuery 2.2.4 -->
+    <script src="{% static 'index/js/jquery.min.js' %}"></script>
+    <!-- Popper -->
+    <script src="{% static 'index/js/popper.min.js' %}"></script>
+    <!-- Bootstrap -->
+    <script src="{% static 'index/js/bootstrap.min.js' %}"></script>
+    <!-- All Plugins -->
+    <script src="{% static 'index/js/alime.bundle.js' %}"></script>
+    <!-- Active -->
+    <script src="{% static 'index/js/default-assets/active.js' %}"></script>
+
+</body>
+
+</html>

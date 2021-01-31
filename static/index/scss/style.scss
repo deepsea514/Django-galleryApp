@@ -1,0 +1,75 @@
+/* ------------------------------------------
+[Master Stylesheet]
+
+Template Name: Alime - Photography HTML Template
+Template Author: Colorlib
+Template Author URL: http://colorlib.com
+Version: 1.0.0
+Last Update: Feb 22, 2019
+
+
+[Tables of CSS Content]
+
++ body
+
+    - 01.0 Reboot CSS
+    - 02.0 Spacing CSS
+    - 03.0 Preloader CSS
+    - 04.0 Heading CSS
+    - 05.0 Backtotop CSS
+    - 06.0 Buttons CSS
+    - 07.0 Header CSS
+    - 08.0 Hero CSS
+    - 09.0 Footer CSS
+    - 10.0 Follow CSS
+    - 11.0 About CSS
+    - 12.0 Breadcrumb CSS
+    - 13.0 Blog CSS
+    - 14.0 Team CSS
+    - 15.0 Gallery CSS
+    - 16.0 Contact CSS
+
+--------------------------------------------- */
+
+/* Import Fonts & All CSS */
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700');
+@import 'css/bootstrap.min.css';
+@import 'css/animate.css';
+@import 'css/default-assets/classy-nav.css';
+@import 'css/owl.carousel.min.css';
+@import 'css/magnific-popup.css';
+@import 'css/font-awesome.min.css';
+@import 'css/default-assets/themify-icons.css';
+@import 'css/style.css';
+
+// Utilities
+
+@import "utilities/fonts";
+@import "utilities/variables";
+@import "utilities/responsive";
+@import "utilities/color";
+
+// Mixins
+
+@import "mixins/flex";
+@import "mixins/miscellaneous";
+
+// Stylesheet
+
+@import "reboot";
+@import "spacing";
+@import "preloader";
+@import "heading";
+@import "backtotop";
+@import "buttons";
+@import "header";
+@import "hero";
+@import "footer";
+@import "follow";
+@import "about";
+@import "breadcrumb";
+@import "blog";
+@import "team";
+@import "gallery";
+@import "contact";

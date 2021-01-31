@@ -1,0 +1,171 @@
+/* :: 11.0 About CSS */
+
+.about-us-content {
+    h3 {
+        font-size: 36px;
+        display: block;
+        margin-bottom: 5px;
+        
+        @media #{$breakpoint-xs} {
+            font-size: 24px;
+        }
+    }
+
+    .line {
+        height: 3px;
+        width: 70px;
+        background-color: $primary;
+        margin-bottom: 30px;
+    }
+}
+
+.about-video-area {
+    position: relative;
+    z-index: 1;
+    border-radius: 10px;
+
+    img {
+        @include box-shadow(3px 0 24px rgba(0, 0, 0, 0.15));
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    .video-icon {
+        a {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: 99;
+            @include transform(translate(-50%, -50%));
+            color: $white;
+            height: 50px;
+            width: 50px;
+            display: inline-block;
+            background-color: $primary;
+            text-align: center;
+            line-height: 56px;
+            font-size: 38px;
+            border-radius: 50%;
+
+            &::after {
+                content: '';
+                position: absolute;
+                width: 0%;
+                height: 0%;
+                border-radius: 50%;
+                background-color: transparent;
+                top: 50%;
+                left: 50%;
+                @include transform(translate(-50%, -50%));
+                border: 2px solid $primary;
+                @include animation(video-icon 1200ms linear infinite);
+                z-index: -10;
+            }
+
+            &:hover,
+            &:focus {
+                background-color: $dark;
+
+                &::after {
+                    border: 2px solid $dark;
+                }
+            }
+        }
+    }
+}
+
+@-webkit-keyframes video-icon {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+
+    50% {
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+    }
+
+    100% {
+        width: 200%;
+        height: 200%;
+        opacity: 0;
+    }
+}
+
+@keyframes video-icon {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+
+    50% {
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+    }
+
+    100% {
+        width: 200%;
+        height: 200%;
+        opacity: 0;
+    }
+}
+
+.why-choose-us-content {
+    @include transition-duration(800ms);
+    background-color: $white;
+    padding: 80px 30px 50px;
+    border-radius: 10px;
+    box-shadow: 3px 0 15px -1px rgba(0, 0, 0, 0.15);
+    position: relative;
+    z-index: 1;
+    margin-top: 50px;
+
+    .chosse-us-icon {
+        @include transition-duration(800ms);
+        height: 76px;
+        width: 76px;
+        background-color: $primary;
+        display: inline-block;
+        text-align: center;
+        line-height: 76px;
+        border-radius: 50%;
+        color: $white;
+        font-size: 30px;
+        position: absolute;
+        top: -38px;
+        left: 50%;
+        margin-left: -38px;
+    }
+
+    h4 {
+        font-size: 20px;
+        font-weight: 500;
+        margin-bottom: 15px;
+        @include transition-duration(800ms);
+    }
+
+    p {
+        @include transition-duration(800ms);
+        font-size: 14px;
+        margin-bottom: 0;
+    }
+
+    &:hover,
+    &:focus {
+        background-color: $primary;
+
+        .chosse-us-icon {
+            background-color: $dark;
+            box-shadow: 0 5px 15px 2px rgba(255, 255, 255, 0.15);
+        }
+
+        h4,
+        p {
+            color: $white;
+        }
+    }
+}

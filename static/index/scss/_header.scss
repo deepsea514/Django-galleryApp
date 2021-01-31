@@ -1,0 +1,232 @@
+/* :: 7.0 Header CSS */
+
+.header-area {
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    @include transition-duration(500ms);
+    background-color: transparent;
+
+    .search-icon {
+        position: relative;
+        z-index: 1;
+        margin-left: 80px;
+
+        i {
+            font-size: 18px;
+            color: $white;
+            cursor: pointer;
+        }
+    }
+}
+
+.top-search-area {
+    .modal {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .modal-content {
+        .modal-body {
+            padding: 50px;
+
+            button {
+                &.close-btn {
+                    position: absolute;
+                    top: 15px;
+                    right: 15px;
+                    z-index: 10;
+                    font-size: 14px;
+
+                    &.btn {
+                        padding: 0;
+                        background-color: transparent;
+                    }
+                }
+            }
+        }
+    }
+
+    form {
+        width: 100%;
+        position: relative;
+        z-index: 1;
+
+        input {
+            width: 100%;
+            height: 50px;
+            border: none;
+            @include box-shadow(0 0 30px 15px rgba(0, 0, 0, 0.08));
+            border-radius: 6px;
+            font-size: 12px;
+            font-style: italic;
+            padding: 0 20px;
+
+            &:focus {
+                @include box-shadow(0 0 30px 15px rgba(0, 0, 0, 0.08));
+            }
+        }
+
+        button {
+            position: absolute;
+            width: 100px;
+            height: 50px;
+            top: 0;
+            right: 0;
+            z-index: 10;
+            border-radius: 0 6px 6px 0;
+            border: none;
+            background-color: $primary;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            text-align: center;
+            color: $white;
+            cursor: pointer;
+        }
+    }
+}
+
+.classy-nav-container {
+    background-color: transparent;
+    padding: 0;
+
+    .classy-navbar {
+        @include transition-duration(500ms);
+        height: 70px;
+        padding: 0;
+
+        .nav-brand {
+            @media #{$breakpoint-xs} {
+                max-width: 90px;
+                margin-right: 15px;
+            }
+        }
+
+        .classynav ul li {
+            a {
+                font-size: 16px;
+                text-transform: capitalize;
+                color: $white;
+                font-weight: 500;
+                padding: 0 20px;
+
+                &:hover,
+                &:focus {
+                    color: $hover;
+                }
+
+                @media #{$breakpoint-lg} {
+                    font-size: 14px;
+                }
+
+                @media #{$breakpoint-md} {
+                    font-size: 14px;
+                    color: $heading;
+
+                    &:hover,
+                    &:focus {
+                        color: $hover;
+                    }
+                }
+
+                @media #{$breakpoint-xs} {
+                    font-size: 14px;
+                    color: $heading;
+
+                    &:hover,
+                    &:focus {
+                        color: $hover;
+                    }
+                }
+            }
+
+            &.cn-dropdown-item,
+            &.megamenu-item {
+                ul li {
+                    a {
+                        font-size: 14px;
+                        text-transform: capitalize;
+                        height: 42px;
+                        line-height: 42px;
+                        padding: 0 30px;
+                        color: $heading;
+
+                        &:focus,
+                        &:hover {
+                            color: $hover;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.classynav ul li {
+    &.active {
+        a {
+            position: relative;
+            z-index: 1;
+
+            &::before {
+                width: calc(100% - 40px);
+                height: 2px;
+                background-color: $primary;
+                position: absolute;
+                bottom: 7px;
+                left: 0;
+                z-index: 1;
+                content: '';
+                left: 50%;
+                transform: translateX(-50%);
+
+                @media #{$breakpoint-md} {
+                    display: none;
+                }
+
+                @media #{$breakpoint-xs} {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+.classynav ul li.has-down > a::after,
+.classynav ul li.has-down.active > a::after,
+.classynav ul li.megamenu-item > a::after {
+    color: $primary;
+}
+
+.breakpoint-off .classynav ul li .dropdown,
+.breakpoint-off .classynav ul li .megamenu {
+    width: 210px;
+    @include box-shadow($box-shadow);
+    border-radius: 6px;
+}
+
+.breakpoint-off .classynav ul li .megamenu {
+    width: 100%;
+}
+
+.classy-navbar-toggler .navbarToggler span {
+    background-color: $heading;
+}
+
+.main-header-area {
+    position: relative;
+    z-index: 1;
+    background-color: transparent;
+    @include transition-duration(500ms);
+    height: 70px;
+    background-color: rgba(0, 0, 0, 0.2);
+
+    &.sticky {
+        background-color: $dark;
+    }
+}
+
+.classy-navbar-toggler .navbarToggler span {
+    background-color: $white;
+}

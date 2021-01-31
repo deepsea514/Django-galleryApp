@@ -1,0 +1,78 @@
+/* :: 10.0 Follow CSS */
+
+.single-instagram-item {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    @include transition-duration(500ms);
+
+    img {
+        width: 100%;
+        @include transition-duration(1500ms);
+    }
+
+    .instagram-hover-content {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(252, 96, 96, 0.9);
+        opacity: 0;
+        visibility: hidden;
+        @include transition-duration(500ms);
+
+        a {
+            text-align: center;
+
+            i {
+                color: $white;
+                font-size: 32px;
+                display: block;
+                margin-bottom: 15px;
+            }
+
+            span {
+                font-size: 14px;
+                margin-bottom: 0;
+                color: $white;
+                
+                @media #{$breakpoint-lg} {
+                    font-size: 12px;
+                }
+                
+                @media #{$breakpoint-md} {
+                    font-size: 12px;
+                }
+                
+                @media #{$breakpoint-xs} {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+
+    &:hover {
+        img {
+            -webkit-transform: scale(1.1);
+            -ms-transform: scale(1.1);
+            transform: scale(1.1)
+        }
+
+    }
+
+    &:hover {
+        .instagram-hover-content {
+            opacity: 1;
+            visibility: visible
+        }
+    }
+}
+
+
+.instagram-gallery-single-item:hover .instagram-hover-content .zoom-img {
+    margin-top: 0;
+    opacity: 1
+}

@@ -1,0 +1,31 @@
+/* :: 4.0 Heading CSS */
+
+.section-heading {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 50px;
+
+    h2 {
+        font-size: 36px;
+        text-transform: capitalize;
+        margin-bottom: 5px;
+        display: block;
+        line-height: 1.2;
+
+        @media #{$breakpoint-xs} {
+            font-size: 24px;
+        }
+    }
+
+    p {
+        margin-bottom: 0;
+    }
+
+    &.white {
+
+        p,
+        h2 {
+            color: $white;
+        }
+    }
+}

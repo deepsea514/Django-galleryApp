@@ -1,0 +1,60 @@
+/* :: 9.0 Footer CSS */
+
+.footer-content {
+    padding: 20px 0;
+
+    .copywrite-text {
+        position: relative;
+        z-index: 1;
+
+        p {
+            margin-bottom: 0;
+            color: $heading;
+
+            @media #{$breakpoint-xs} {
+                font-size: 12px;
+            }
+
+            a {
+                color: $primary;
+                font-weight: 400;
+
+                @media #{$breakpoint-xs} {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+
+    .footer-logo {
+        a {
+            img {
+                @media #{$breakpoint-xs} {
+                    max-width: 50px;
+                }
+            }
+        }
+    }
+
+    .social-info {
+        a {
+            color: $heading;
+            font-size: 16px;
+            margin-right: 20px;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            @media #{$breakpoint-xs} {
+                margin-right: 5px;
+                font-size: 12px;
+            }
+
+            &:hover,
+            &:focus {
+                color: $hover;
+            }
+        }
+    }
+}
