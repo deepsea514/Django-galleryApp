@@ -14,9 +14,14 @@ class Product(models.Model):
     P_description = models.CharField(max_length=200, default='temp')
     P_category = models.ForeignKey(Categories, on_delete=models.CASCADE, null=True)
 
+    def __str__(self):
+        return self.P_name
+
 class Comments(models.Model):
     comment = models.CharField(max_length=300)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     P_id = models.ForeignKey(Product, on_delete=models.CASCADE)
     date = models.DateField(default=datetime.now())
 
+    def __str__(self):
+        return self.user
