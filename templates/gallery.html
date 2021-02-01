@@ -37,10 +37,10 @@
                             {% csrf_token %}
                             <div>
                                 <select name="category" class="form-control mb-30">
+                                    <option id="All">All</option>
                                     {% for category in category %}
                                         <option id="{{ category.category }}">{{ category.category }}</option>
                                     {% endfor %}
-                                    
                                 </select>
                             </div>
                             <div>
@@ -80,7 +80,7 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul id="nav">
-                                    <li ><a href="./index.html">Home</a></li>
+                                    <li ><a href="{% url 'index' %}">Home</a></li>
 
 
                                     <li class="active"><a href="{% url 'gallery' %}">Gallery</a></li>

@@ -11,9 +11,11 @@ def gallery(request):
 
     if request.method == 'POST':
         category = request.POST.get('category')
-
-        get_category = Categories.objects.get(category=category)
-        obj = Product.objects.filter(P_category = get_category)
+        if category == 'All':
+            obj = Product.objects.all()
+        else:
+            get_category = Categories.objects.get(category=category)
+            obj = Product.objects.filter(P_category = get_category)
 
 
 
