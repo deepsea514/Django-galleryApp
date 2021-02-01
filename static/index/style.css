@@ -511,7 +511,7 @@ input:required {
   .top-search-area form button {
     position: absolute;
     width: 100px;
-    height: 50px;
+
     top: 0;
     right: 0;
     z-index: 10;

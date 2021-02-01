@@ -18,5 +18,5 @@ class Comments(models.Model):
     comment = models.CharField(max_length=300)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     P_id = models.ForeignKey(Product, on_delete=models.CASCADE)
-    date = models.DateField(default=datetime.now(),null=True)
+    date = models.DateField(default=datetime.now())
 

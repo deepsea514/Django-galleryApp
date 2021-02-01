@@ -24,6 +24,36 @@
         <div class="loader"></div>
     </div>
     <!-- /Preloader -->
+
+    <div class="top-search-area">
+        <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <!-- Close -->
+                        <button type="button" class="btn close-btn" data-dismiss="modal"><i class="ti-close"></i></button>
+                        <!-- Form -->
+                        <form  method="post">
+                            {% csrf_token %}
+                            <div>
+                                <select name="category" class="form-control mb-30">
+                                    {% for category in category %}
+                                        <option id="{{ category.category }}">{{ category.category }}</option>
+                                    {% endfor %}
+                                    
+                                </select>
+                            </div>
+                            <div>
+                                <button type="submit" class="form-control mb-30" >Search</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 <!-- Header Area Start -->
     <header class="header-area">
         <!-- Main Header Start -->
@@ -64,6 +94,7 @@
                                 </ul>
 
                                 <!-- Search Icon -->
+                                <div class="search-icon" data-toggle="modal" data-target="#searchModal"><i class="ti-search"></i></div>
 
                             </div>
                             <!-- Nav End -->

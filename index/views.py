@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from controlpannel.models import Product, Comments
+from controlpannel.models import Product, Comments, Categories
 from authorization.models import User
 # Create your views here.
 def index(request):
@@ -7,10 +7,17 @@ def index(request):
 
 def gallery(request):
     obj = Product.objects.all()
-    for i in obj:
-        print(i.P_id)
+    total_categories = Categories.objects.all()
 
-    return render(request,'gallery.html', {'product_images':obj})
+    if request.method == 'POST':
+        category = request.POST.get('category')
+
+        get_category = Categories.objects.get(category=category)
+        obj = Product.objects.filter(P_category = get_category)
+
+
+
+    return render(request,'gallery.html', {'product_images':obj, 'category': total_categories})
 
 def product_detail(request,key_id):
     print(key_id)
