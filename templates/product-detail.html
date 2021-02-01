@@ -30,7 +30,23 @@
 
 
     <!-- Breadcrumb Area Start -->
-
+    <section class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url('https://images.unsplash.com/photo-1496417263034-38ec4f0b665a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80');">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcrumb-content text-center">
+                        <h2 class="page-title">Gallery</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb justify-content-center">
+                                <li class="breadcrumb-item"><a href="{% url 'gallery' %}"><i class="icon_house_alt"></i> Gallery</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Product Detail</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Breadcrumb Area End -->
 
 
@@ -45,17 +61,21 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-4">
-                    <img src="media/products/item-1_TTSHmvY.jpg">
+                    <img src="{{ image.P_image.url }}" alt="">
                 </div>
                 <div class="col-lg-8">
                     <!-- Comments Area -->
                     <div class="comment_area clearfix">
-                        <h4 class="mb-30">02 Comments</h4>
-
+                        {% if data %}
+                        <h4 class="mb-30">Comments</h4>
+                        {% else %}
+                            <h4 class="mb-30">Be first to comment</h4>
+                        {% endif %}
                         <ol>
                             <!-- Single Comment Area -->
                             <li class="single_comment_area">
                                 <!-- Comment Content -->
+                                {% for comment in data %}
                                 <div class="comment-content d-flex">
                                     <!-- Comment Author -->
                                     <div class="comment-author">
@@ -64,25 +84,14 @@
                                     <!-- Comment Meta -->
                                     <div class="comment-meta">
                                         <a href="#" class="post-date">31 Jan 2020</a>
-                                        <h5>Dhruv Patel</h5>
-                                        <p>This product is good and the quality is also uptp the marks.</p>
+                                        <h5>{{ comment.NAME }}</h5>
+                                        <p>{{ comment.COMMENT }}</p>
                                     </div>
 
                                 </div>
+                                {% endfor %}
 
-                                <div class="comment-content d-flex">
-                                    <!-- Comment Author -->
-                                    <div class="comment-author">
 
-                                    </div>
-                                    <!-- Comment Meta -->
-                                    <div class="comment-meta">
-                                        <a href="#" class="post-date">31 Jan 2020</a>
-                                        <h5>Dhruv Patel</h5>
-                                        <p>This product is good and the quality is also uptp the marks.</p>
-                                    </div>
-
-                                </div>
 
 
                             </li>
@@ -96,23 +105,36 @@
                         <h4 class="mb-30">Leave A Comment</h4>
 
                         <!-- Form -->
-                        <form action="#" method="post">
+                        <form  method="post">
+                            {% csrf_token %}
                             <div class="row">
-                                <div class="col-12 col-md-6">
-                                    <input type="text" name="message-name" class="form-control mb-30" placeholder="Your Name">
-                                </div>
-                                <div class="col-12 col-md-6">
 
-                                </div>
-                                <div class="col-12">
-
-                                </div>
                                 <div class="col-12">
                                     <textarea name="message" class="form-control mb-30" placeholder="Messages"></textarea>
                                 </div>
                                 <div class="col-12">
                                     <button type="submit" class="btn alime-btn btn-2 mt-15">Send Messages</button>
                                 </div>
+                                {% if error %}
+                                <div class="col-12 mt-40">
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        <strong>SORRY!</strong> {{ error }}
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                    </div>
+                                </div>
+                                {% endif %}
+                                {% if error_login %}
+                                <div class="col-12 mt-40">
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        <strong>SORRY!</strong> {{ error_login }} <a href="{% url 'login' %}">LOGIN</a>
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                    </div>
+                                </div>
+                                {% endif %}
                             </div>
                         </form>
                     </div>
@@ -122,7 +144,10 @@
         </div>
     </div>
 
+
+
     <!-- Comment Area End -->
+
 
 
 

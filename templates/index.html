@@ -57,8 +57,12 @@
 
 
                                     <li><a href="{% url 'gallery' %}">Gallery</a></li>
-                                    <li><a href="{% url 'controlPannel' %}">Admin</a></li>
+                                    <li><a href="{% url 'admin:index' %}">Admin</a></li>
+                                    {% if request.session.email %}
+                                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                                    {% else %}
                                     <li><a href="{% url 'login' %}">Login</a></li>
+                                    {% endif %}
                                     <li><a href="./contact.html">Contact</a></li>
                                 </ul>
 
