@@ -641,12 +641,12 @@ input:required {
     transition-duration: 500ms;
     width: 66px;
     height: 66px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10%;
+    background-color: rgba(255, 255, 255, 0);
     position: absolute;
     top: 50%;
     left: 70px;
-    margin-top: -33px;
+    margin-top: auto;
     z-index: 10;
     text-align: center;
     line-height: 70px;
@@ -655,7 +655,7 @@ input:required {
     .welcome-slides .owl-prev:hover, .welcome-slides .owl-prev:focus,
     .welcome-slides .owl-next:hover,
     .welcome-slides .owl-next:focus {
-      background-color: #fc6060; }
+      background-color: rgba(255, 255, 255, 0); }
     @media only screen and (min-width: 768px) and (max-width: 991px) {
       .welcome-slides .owl-prev,
       .welcome-slides .owl-next {
@@ -718,45 +718,6 @@ input:required {
       .single-welcome-slide .welcome-text .hero-mail-contact:hover, .single-welcome-slide .welcome-text .hero-mail-contact:focus {
         color: #fc6060; }
 
-.single-welcome-slide1 {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  height: 880px;
-  background-color: #fc6060; }
-  @media only screen and (min-width: 992px) and (max-width: 1199px) {
-    .single-welcome-slide1 {
-      height: 750px; } }
-  @media only screen and (min-width: 768px) and (max-width: 991px) {
-    .single-welcome-slide1 {
-      height: 750px; } }
-  @media only screen and (max-width: 767px) {
-    .single-welcome-slide1 {
-      height: 600px; } }
-  .single-welcome-slide1 .welcome-text {
-    position: relative;
-    z-index: 1; }
-    .single-welcome-slide1 .welcome-text h2 {
-      font-weight: 700;
-      font-size: 82px;
-      display: block;
-      margin-bottom: 0;
-      background: -webkit-linear-gradient(#ff9696, #ffe89e);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent; }
-      @media only screen and (max-width: 767px) {
-        .single-welcome-slide .welcome-text h2 {
-          font-size: 42px; } }
-    .single-welcome-slide1 .welcome-text p {
-      color: #ffffff;
-      margin-bottom: 50px;
-      display: block; }
-    .single-welcome-slide1 .welcome-text .hero-mail-contact {
-      color: #ffffff;
-      font-style: italic;
-      text-decoration: underline; }
-      .single-welcome-slide1 .welcome-text .hero-mail-contact:hover, .single-welcome-slide1 .welcome-text .hero-mail-contact:focus {
-        color: #fc6060; }
 
 /* :: 9.0 Footer CSS */
 .footer-content {
