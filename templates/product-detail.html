@@ -49,8 +49,6 @@
     </section>
     <!-- Breadcrumb Area End -->
 
-
-
     <!-- About Us Area Start -->
     <div class="about-us-area bg-gray section-padding-80-0 clearfix">
         <div class="container">
@@ -70,10 +68,39 @@
 
                     </div>
                 </div>
+                <div class="instragram-feed-area owl-carousel">
+                    {% for images in side_images %}
+                    <div class="single-instagram-item">
+                        <img src="{{ images.P_image.url }}" alt="">
+                            <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
+                                <a href="{{ images.P_image.url }}">
+                                    <i class="ti-fullscreen" aria-hidden="true"></i>
+                                    <span>Expand</span>
+                                </a>
+                            </div>
+                    </div>
+                    {% endfor %}
+
+
+
+
+
+
+                </div>
             </div>
         </div>
     </div>
     <!-- About Us Area End -->
+
+    <div class="about-us-area bg-gray section-padding-80-0 clearfix">
+        <div class="container">
+
+        </div>
+    </div>
+
+
+
+
 
 
 
@@ -204,6 +231,26 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="{% static 'index/js/alime.bundle.js' %}"></script>
     <!-- Active -->
     <script src="{% static 'index/js/default-assets/active.js' %}"></script>
+    <script>
+        $(document).ready(function() {
+
+  $("#owl-demo11").owlCarousel({
+
+      navigation : true, // Show next and prev buttons
+
+      slideSpeed : 300,
+      paginationSpeed : 400,
+
+      items : 1,
+      itemsDesktop : false,
+      itemsDesktopSmall : false,
+      itemsTablet: false,
+      itemsMobile : false
+
+  });
+
+});
+    </script>
 
 </body>
 

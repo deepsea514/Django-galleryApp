@@ -90,11 +90,11 @@
                                     {% else %}
                                     <li><a href="{% url 'login' %}">Login</a></li>
                                     {% endif %}
-                                    <li><a href="./contact.html">Contact</a></li>
+                                    
                                 </ul>
 
                                 <!-- Search Icon -->
-                                <div class="search-icon" data-toggle="modal" data-target="#searchModal"><i class="ti-search"></i></div>
+                                <!-- <div class="search-icon" data-toggle="modal" data-target="#searchModal"><i class="ti-search"></i></div> -->
 
                             </div>
                             <!-- Nav End -->
@@ -119,6 +119,10 @@
                             <ol class="breadcrumb justify-content-center">
                                 <li class="breadcrumb-item"><a href="{% url 'index' %}"><i class="icon_house_alt"></i> Home</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Gallery</li>
+                            </ol><br><br>
+                            <ol class="breadcrumb justify-content-center">
+                                <li class="breadcrumb-item"><div class="search-icon" data-toggle="modal" data-target="#searchModal"><i class="ti-search"></i><a > Categories</a></div></li>
+
                             </ol>
                         </nav>
                     </div>
@@ -163,6 +167,9 @@
     </div>
     <!-- Gallery Area End -->
 
+
+
+
     <!-- Footer Area Start -->
     <footer class="footer-area">
         <div class="container">
@@ -187,8 +194,10 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <!-- Footer Area End -->
 
     <!-- **** All JS Files ***** -->
+
     <!-- jQuery 2.2.4 -->
     <script src="{% static 'index/js/jquery.min.js' %}"></script>
+
     <!-- Popper -->
     <script src="{% static 'index/js/popper.min.js' %}"></script>
     <!-- Bootstrap -->

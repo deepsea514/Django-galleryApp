@@ -15,7 +15,7 @@ class Product(models.Model):
     P_category = models.ForeignKey(Categories, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
-        return self.P_name
+        return self.P_name +' Id:' + str(self.P_id)
 
 class Comments(models.Model):
     comment = models.CharField(max_length=300)
@@ -24,4 +24,11 @@ class Comments(models.Model):
     date = models.DateField(default=datetime.now())
 
     def __str__(self):
-        return self.user
+        return self.comment
+
+class Product_Side_Images(models.Model):
+    P_id = models.ForeignKey(Product ,on_delete=models.CASCADE)
+    P_image = models.ImageField(upload_to='products/')
+
+    def __str__(self):
+        return str(self.P_id)

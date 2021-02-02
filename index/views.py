@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from controlpannel.models import Product, Comments, Categories
+from controlpannel.models import Product, Comments, Categories, Product_Side_Images
 from authorization.models import User
 # Create your views here.
 def index(request):
@@ -30,6 +30,7 @@ def product_detail(request,key_id):
     comment_data = []
     for i in obj:
         comment_data.append({'COMMENT': i.comment, 'NAME': i.user.name})
+    side_images = Product_Side_Images.objects.filter(P_id = product_obj)
 
     if request.method == 'POST':
         message = request.POST.get('message')
@@ -49,7 +50,7 @@ def product_detail(request,key_id):
                 for i in obj:
                     comment_data.append({'COMMENT': i.comment, 'NAME': i.user.name})
 
-                return render(request, 'product-detail.html', {'data': comment_data, 'image': product_obj, 'error': 'You can enter only one comment' })
+                return render(request, 'product-detail.html', {'data': comment_data, 'image': product_obj,'side_images':side_images, 'error': 'You can enter only one comment' })
 
             except new_comment.DoesNotExist:
                 Comments.objects.create(comment=message, user=check_user, P_id=get_product)
@@ -60,7 +61,7 @@ def product_detail(request,key_id):
                 for i in obj:
                     comment_data.append({'COMMENT': i.comment, 'NAME': i.user.name})
 
-                return render(request, 'product-detail.html', {'data': comment_data, 'image': product_obj})
+                return render(request, 'product-detail.html', {'data': comment_data, 'image': product_obj,'side_images':side_images})
 
 
         else:
@@ -70,7 +71,7 @@ def product_detail(request,key_id):
             comment_data = []
             for i in obj:
                 comment_data.append({'COMMENT': i.comment, 'NAME': i.user.name})
-            return render(request, 'product-detail.html', {'data': comment_data, 'image': product_obj, 'error_login':'You need to login first!'})
+            return render(request, 'product-detail.html', {'data': comment_data, 'image': product_obj,'side_images':side_images, 'error_login':'You need to login first!'})
 
 
     #print(comment_data)
@@ -78,4 +79,4 @@ def product_detail(request,key_id):
 
     print(product_obj.P_image)
 
-    return  render(request,'product-detail.html', {'data': comment_data, 'image': product_obj})
+    return  render(request,'product-detail.html', {'data': comment_data, 'image': product_obj,'side_images':side_images,})
