@@ -73,7 +73,7 @@
                     <div class="single-instagram-item">
                         <img src="{{ images.P_image.url }}" alt="">
                             <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
-                                <a href="{{ images.P_image.url }}">
+                                <a href="{% url 'productdetail' key_id=P_id %}">
                                     <i class="ti-fullscreen" aria-hidden="true"></i>
                                     <span>Expand</span>
                                 </a>

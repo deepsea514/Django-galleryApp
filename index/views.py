@@ -50,7 +50,7 @@ def product_detail(request,key_id):
                 for i in obj:
                     comment_data.append({'COMMENT': i.comment, 'NAME': i.user.name})
 
-                return render(request, 'product-detail.html', {'data': comment_data, 'image': product_obj,'side_images':side_images, 'error': 'You can enter only one comment' })
+                return render(request, 'product-detail.html', {'P_id':key_id,'data': comment_data, 'image': product_obj,'side_images':side_images, 'error': 'You can enter only one comment' })
 
             except new_comment.DoesNotExist:
                 Comments.objects.create(comment=message, user=check_user, P_id=get_product)
@@ -61,7 +61,7 @@ def product_detail(request,key_id):
                 for i in obj:
                     comment_data.append({'COMMENT': i.comment, 'NAME': i.user.name})
 
-                return render(request, 'product-detail.html', {'data': comment_data, 'image': product_obj,'side_images':side_images})
+                return render(request, 'product-detail.html', {'P_id':key_id,'data': comment_data, 'image': product_obj,'side_images':side_images})
 
 
         else:
@@ -71,7 +71,7 @@ def product_detail(request,key_id):
             comment_data = []
             for i in obj:
                 comment_data.append({'COMMENT': i.comment, 'NAME': i.user.name})
-            return render(request, 'product-detail.html', {'data': comment_data, 'image': product_obj,'side_images':side_images, 'error_login':'You need to login first!'})
+            return render(request, 'product-detail.html', {'P_id':key_id,'data': comment_data, 'image': product_obj,'side_images':side_images, 'error_login':'You need to login first!'})
 
 
     #print(comment_data)
@@ -79,4 +79,14 @@ def product_detail(request,key_id):
 
     print(product_obj.P_image)
 
-    return  render(request,'product-detail.html', {'data': comment_data, 'image': product_obj,'side_images':side_images,})
+    return  render(request,'product-detail.html', {'P_id':key_id,'data': comment_data, 'image': product_obj,'side_images':side_images,})
+
+def product_side_images(request,key_id):
+    product = Product
+    product_obj = product.objects.get(P_id=key_id)
+
+
+
+    side_images = Product_Side_Images.objects.filter(P_id=product_obj)
+
+    return render(request, 'Product_side_images.html', {'images':side_images})
